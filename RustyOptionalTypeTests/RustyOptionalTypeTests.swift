@@ -83,28 +83,28 @@ class RustyOptionalTypeTests: XCTestCase {
         let x: Int? = 10
         let y: Int = 20
         let map: (Int) -> Int = { $0 * 10 }
-        XCTAssertEqual(x.map(or: y, map), 100)
+        XCTAssertEqual(x.map(or: y, transform: map), 100)
     }
     
     func testMapOrSelfIsNone() {
         let x: Int? = nil
         let y: Int = 20
         let map: (Int) -> Int = { $0 * 10 }
-        XCTAssertEqual(x.map(or: y, map), 20)
+        XCTAssertEqual(x.map(or: y, transform: map), 20)
     }
     
     func testMapOrElse() {
         let x: Int? = 10
         let y: () -> Int = { 20 }
         let map: (Int) -> Int = { $0 * 10 }
-        XCTAssertEqual(x.map(or: y, map), 100)
+        XCTAssertEqual(x.map(or: y, transform: map), 100)
     }
     
     func testMapOrElseSelfIsNone() {
         let x: Int? = nil
         let y: () -> Int = { 20 }
         let map: (Int) -> Int = { $0 * 10 }
-        XCTAssertEqual(x.map(or: y, map), 20)
+        XCTAssertEqual(x.map(or: y, transform: map), 20)
     }
     
     

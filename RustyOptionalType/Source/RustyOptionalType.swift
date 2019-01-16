@@ -48,7 +48,7 @@ extension Optional {
         }
     }
     
-    public func map<U>(or default: U, _ transform: (Wrapped) throws -> U) rethrows -> U {
+    public func map<U>(or default: U, transform: (Wrapped) throws -> U) rethrows -> U {
         if self.isSome {
             return try transform(self!)
         } else {
@@ -56,7 +56,7 @@ extension Optional {
         }
     }
     
-    public func map<U>(or default: () throws -> U, _ transform: (Wrapped) throws -> U) rethrows -> U {
+    public func map<U>(or default: () throws -> U, transform: (Wrapped) throws -> U) rethrows -> U {
         if self.isSome {
             return try transform(self!)
         } else {
