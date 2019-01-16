@@ -88,7 +88,7 @@ extension Optional {
         }
     }
     
-    public func andThen<U>(_ f: (Wrapped) throws -> U?) rethrows -> U? {
+    public func and<U>(then f: (Wrapped) throws -> U?) rethrows -> U? {
         return try flatMap(f)
     }
     

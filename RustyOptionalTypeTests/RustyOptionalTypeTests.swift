@@ -176,11 +176,11 @@ class RustyOptionalTypeTests: XCTestCase {
         let nope: (Int) -> Int? = { _ in nil }
         
         let a: Int? = 10
-        XCTAssertEqual(a.andThen(sq).andThen(sq), 10_000)
-        XCTAssertNil(a.andThen(nope).andThen(sq))
+        XCTAssertEqual(a.and(then: sq).and(then: sq), 10_000)
+        XCTAssertNil(a.and(then: nope).and(then: sq))
         
         let b: Int? = nil
-        XCTAssertNil(b.andThen(sq).andThen(sq))
+        XCTAssertNil(b.and(then: sq).and(then: sq))
     }
     
     func testFilter() {
