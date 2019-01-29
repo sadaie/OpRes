@@ -2,8 +2,8 @@
 //  RustyOptionalType.h
 //  RustyOptionalType
 //
-//  Created by Sadaie Matsudaira on 2019/01/11.
-//  Copyright © 2019 Sadaie Matsudaira. All rights reserved.
+// This software licensed under the MIT Lincense.
+// See LINCENSE file in the project root for full license information.
 //
 
 #import <UIKit/UIKit.h>

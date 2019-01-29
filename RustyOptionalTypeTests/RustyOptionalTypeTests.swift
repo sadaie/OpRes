@@ -2,8 +2,8 @@
 //  RustyOptionalTypeTests.swift
 //  RustyOptionalTypeTests
 //
-//  Created by Sadaie Matsudaira on 2019/01/11.
-//  Copyright © 2019 Sadaie Matsudaira. All rights reserved.
+// This software licensed under the MIT Lincense.
+// See LINCENSE file in the project root for full license information.
 //
 
 import XCTest
@@ -245,23 +245,40 @@ class RustyOptionalTypeTests: XCTestCase {
     }
     
     func testGetOrInsert() {
-        var a: Int? = nil
-        let b: Int? = a.getOrInsert(10)
-        XCTAssertEqual(a, b)
+        var x: Int? = nil
         
-        var c: Int? = 10
-        let d: Int? = c.getOrInsert(20)
-        XCTAssertEqual(c, d)
+        do {
+            let y: UnsafeMutablePointer<Int> = x.getOrInsert(10)
+            XCTAssertEqual(y.pointee, 10)
+            
+            y.pointee = 20
+        }
+        
+        XCTAssertEqual(x, 20)
+        
+        var y: Int? = 20
+        
+        do {
+            let z: UnsafeMutablePointer<Int> = y.getOrInsert(200)
+            XCTAssertEqual(z.pointee, 20)
+            
+            z.pointee = 200
+        }
+        
+        XCTAssertEqual(y, 200)
     }
     
     func testGetOrInsertWith() {
-        var a: Int? = nil
-        let b: Int? = a.getOrInsert { 10 }
-        XCTAssertEqual(a, b)
+        var x: Int? = nil
         
-        var c: Int? = 10
-        let d: Int? = c.getOrInsert { 20 }
-        XCTAssertEqual(c, d)
+        do {
+            let y: UnsafeMutablePointer<Int> = x.getOrInsert { 10 }
+            XCTAssertEqual(y.pointee, 10)
+            
+            y.pointee = 20
+        }
+        
+        XCTAssertEqual(x, 20)
     }
     
     func testTake() {
@@ -282,5 +299,11 @@ class RustyOptionalTypeTests: XCTestCase {
         
         XCTAssertEqual(a, 20)
         XCTAssertEqual(b, 10)
+        
+        var c: Int? = nil
+        let d: Int? = c.replace(20)
+        
+        XCTAssertEqual(c, 20)
+        XCTAssertNil(d)
     }
 }
