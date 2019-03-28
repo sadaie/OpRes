@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5040D2F721E8784400BD29AA"
-               BuildableName = "RustyOptionalType.framework"
-               BlueprintName = "RustyOptionalType"
-               ReferencedContainer = "container:RustyOptionalType.xcodeproj">
+               BuildableName = "OpRes.framework"
+               BlueprintName = "OpRes"
+               ReferencedContainer = "container:OpRes.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5040D30021E8784500BD29AA"
-               BuildableName = "RustyOptionalTypeTests.xctest"
-               BlueprintName = "RustyOptionalTypeTests"
-               ReferencedContainer = "container:RustyOptionalType.xcodeproj">
+               BuildableName = "OpResTests.xctest"
+               BlueprintName = "OpResTests"
+               ReferencedContainer = "container:OpRes.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5040D2F721E8784400BD29AA"
-            BuildableName = "RustyOptionalType.framework"
-            BlueprintName = "RustyOptionalType"
-            ReferencedContainer = "container:RustyOptionalType.xcodeproj">
+            BuildableName = "OpRes.framework"
+            BlueprintName = "OpRes"
+            ReferencedContainer = "container:OpRes.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5040D2F721E8784400BD29AA"
-            BuildableName = "RustyOptionalType.framework"
-            BlueprintName = "RustyOptionalType"
-            ReferencedContainer = "container:RustyOptionalType.xcodeproj">
+            BuildableName = "OpRes.framework"
+            BlueprintName = "OpRes"
+            ReferencedContainer = "container:OpRes.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -84,9 +84,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5040D2F721E8784400BD29AA"
-            BuildableName = "RustyOptionalType.framework"
-            BlueprintName = "RustyOptionalType"
-            ReferencedContainer = "container:RustyOptionalType.xcodeproj">
+            BuildableName = "OpRes.framework"
+            BlueprintName = "OpRes"
+            ReferencedContainer = "container:OpRes.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
