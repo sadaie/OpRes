@@ -1,0 +1,5 @@
+language: objective-c
+osx_image: xcode10.2
+xcode_project: OpRes.xcodeproj
+xcode_scheme: OpResTests
+xocde_destination: platform=iOS Simulator,name=iPhone 8,OS=12.2
