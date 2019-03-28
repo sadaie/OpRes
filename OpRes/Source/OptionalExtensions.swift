@@ -1,9 +1,9 @@
 //
-//  RustyOptionalType.swift
-//  RustyOptionalType
+//  OptionalExtensions.swift
+//  OpRes
 //
-// This software licensed under the MIT Lincense.
-// See LINCENSE file in the project root for full license information.
+// This software licensed under the MIT LICENSE.
+// See LICENSE file in the project root for full license information.
 //
 
 extension Optional {
@@ -36,7 +36,7 @@ extension Optional {
     
     /// Unwraps an option. This is equivalent to the `Forced Unwrapping`.
     ///
-    /// - Returns: Wapped value.
+    /// - Returns: Wrapped value.
     public func unwrap() -> Wrapped {
         return self!
     }
@@ -57,7 +57,6 @@ extension Optional {
     ///
     /// - Parameter f: A function to be evaluated if the option is `none`.
     /// - Returns: Wrapped value or a default
-    /// - Throws: Throws an error if `f` throws an error.
     public func unwrap(or f: () throws -> Wrapped) rethrows -> Wrapped {
         if self.isSome {
             return self!
@@ -96,29 +95,29 @@ extension Optional {
         }
     }
     
-    /// Returns the wrapped value if the option is `some`, or throws given error.
+    /// Returns the wrapped value if the option is `some`, otherwise returns given error.
     ///
     /// - Parameter error: An error to be thrown if the option is `none`.
-    /// - Returns: Wrapped value.
-    /// - Throws: The given error.
-    public func ok(or error: Error) throws -> Wrapped {
-        if self.isSome {
-            return self!
-        } else {
-            throw error
+    /// - Returns: A result value.
+    public func ok<E>(or error: E) -> Result<Wrapped, E> where E: Error {
+        switch self {
+        case let .some(w):
+            return .success(w)
+        case .none:
+            return .failure(error)
         }
     }
     
-    /// Returns the wrapped value if the option is `some`, or throws an error returned from the given closure.
+    /// Returns the wrapped value if the option is `some`, otherwise returns an error returned from the given closure.
     ///
     /// - Parameter error: A function to be evaluated if the option is `none`.
-    /// - Returns: Wrapped value
-    /// - Throws: An error returned from `error`.
-    public func ok(or error: () throws -> Error) throws -> Wrapped {
-        if self.isSome {
-            return self!
-        } else {
-            throw try error()
+    /// - Returns: A result value.
+    public func ok<E>(or f: () -> E) -> Result<Wrapped, E> where E: Error {
+        switch self {
+        case let .some(w):
+            return .success(w)
+        case .none:
+            return .failure(f())
         }
     }
     
@@ -140,7 +139,7 @@ extension Optional {
     /// - Parameter f: A function to be evaluated if the option is `none`.
     /// - Returns: Transformed value or `none`.
     /// - Throws: Throws an error if `f` throws an error.
-    public func and<U>(then f: (Wrapped) throws -> U?) rethrows -> U? {
+    public func and<U>(_ f: (Wrapped) throws -> U?) rethrows -> U? {
         return try flatMap(f)
     }
     
@@ -249,5 +248,21 @@ extension Optional {
         let old = self
         self = .some(value)
         return old
+    }
+    
+    /// Transposes an `Optional` of a `Result` into a `Result` of an `Optional`.
+    ///
+    /// `.none` will be mapped to `.success(.none)`.
+    /// `.some(.success(_))` and `.some(.failure(_))` will be mapped to `.success(.some(_))` and `.failure(_)`.
+    /// - Returns: Transposed value.
+    public func transpose<T, E>() -> Result<T?, E> where Wrapped == Result<T, E>, E: Error {
+        switch self {
+        case .some(.success(let s)):
+            return .success(s)
+        case .some(.failure(let e)):
+            return .failure(e)
+        case .none:
+            return .success(nil)
+        }
     }
 }

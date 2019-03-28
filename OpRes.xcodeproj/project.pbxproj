@@ -3,14 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5040D30221E8784500BD29AA /* RustyOptionalType.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5040D2F821E8784500BD29AA /* RustyOptionalType.framework */; };
-		5040D30721E8784500BD29AA /* RustyOptionalTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5040D30621E8784500BD29AA /* RustyOptionalTypeTests.swift */; };
-		5040D30921E8784500BD29AA /* RustyOptionalType.h in Headers */ = {isa = PBXBuildFile; fileRef = 5040D2FB21E8784500BD29AA /* RustyOptionalType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5040D31621E8789E00BD29AA /* RustyOptionalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5040D31521E8789E00BD29AA /* RustyOptionalType.swift */; };
+		503A0B8F224A0A2400F110F6 /* ResultExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503A0B8E224A0A2400F110F6 /* ResultExtensions.swift */; };
+		5040D30221E8784500BD29AA /* OpRes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5040D2F821E8784500BD29AA /* OpRes.framework */; };
+		5040D30721E8784500BD29AA /* OpResTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5040D30621E8784500BD29AA /* OpResTests.swift */; };
+		5040D30921E8784500BD29AA /* OpRes.h in Headers */ = {isa = PBXBuildFile; fileRef = 5040D2FB21E8784500BD29AA /* OpRes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5040D31621E8789E00BD29AA /* OptionalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5040D31521E8789E00BD29AA /* OptionalExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,13 +25,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5040D2F821E8784500BD29AA /* RustyOptionalType.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RustyOptionalType.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5040D2FB21E8784500BD29AA /* RustyOptionalType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RustyOptionalType.h; sourceTree = "<group>"; };
+		503A0B8E224A0A2400F110F6 /* ResultExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultExtensions.swift; sourceTree = "<group>"; };
+		5040D2F821E8784500BD29AA /* OpRes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpRes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5040D2FB21E8784500BD29AA /* OpRes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpRes.h; sourceTree = "<group>"; };
 		5040D2FC21E8784500BD29AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5040D30121E8784500BD29AA /* RustyOptionalTypeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RustyOptionalTypeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5040D30621E8784500BD29AA /* RustyOptionalTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustyOptionalTypeTests.swift; sourceTree = "<group>"; };
+		5040D30121E8784500BD29AA /* OpResTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpResTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5040D30621E8784500BD29AA /* OpResTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpResTests.swift; sourceTree = "<group>"; };
 		5040D30821E8784500BD29AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5040D31521E8789E00BD29AA /* RustyOptionalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustyOptionalType.swift; sourceTree = "<group>"; };
+		5040D31521E8789E00BD29AA /* OptionalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5040D30221E8784500BD29AA /* RustyOptionalType.framework in Frameworks */,
+				5040D30221E8784500BD29AA /* OpRes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,8 +57,8 @@
 		5040D2EE21E8784400BD29AA = {
 			isa = PBXGroup;
 			children = (
-				5040D2FA21E8784500BD29AA /* RustyOptionalType */,
-				5040D30521E8784500BD29AA /* RustyOptionalTypeTests */,
+				5040D2FA21E8784500BD29AA /* OpRes */,
+				5040D30521E8784500BD29AA /* OpResTests */,
 				5040D2F921E8784500BD29AA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,35 +66,36 @@
 		5040D2F921E8784500BD29AA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5040D2F821E8784500BD29AA /* RustyOptionalType.framework */,
-				5040D30121E8784500BD29AA /* RustyOptionalTypeTests.xctest */,
+				5040D2F821E8784500BD29AA /* OpRes.framework */,
+				5040D30121E8784500BD29AA /* OpResTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5040D2FA21E8784500BD29AA /* RustyOptionalType */ = {
+		5040D2FA21E8784500BD29AA /* OpRes */ = {
 			isa = PBXGroup;
 			children = (
 				5040D31221E8786A00BD29AA /* Source */,
-				5040D2FB21E8784500BD29AA /* RustyOptionalType.h */,
+				5040D2FB21E8784500BD29AA /* OpRes.h */,
 				5040D2FC21E8784500BD29AA /* Info.plist */,
 			);
-			path = RustyOptionalType;
+			path = OpRes;
 			sourceTree = "<group>";
 		};
-		5040D30521E8784500BD29AA /* RustyOptionalTypeTests */ = {
+		5040D30521E8784500BD29AA /* OpResTests */ = {
 			isa = PBXGroup;
 			children = (
-				5040D30621E8784500BD29AA /* RustyOptionalTypeTests.swift */,
+				5040D30621E8784500BD29AA /* OpResTests.swift */,
 				5040D30821E8784500BD29AA /* Info.plist */,
 			);
-			path = RustyOptionalTypeTests;
+			path = OpResTests;
 			sourceTree = "<group>";
 		};
 		5040D31221E8786A00BD29AA /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				5040D31521E8789E00BD29AA /* RustyOptionalType.swift */,
+				5040D31521E8789E00BD29AA /* OptionalExtensions.swift */,
+				503A0B8E224A0A2400F110F6 /* ResultExtensions.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -104,16 +107,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5040D30921E8784500BD29AA /* RustyOptionalType.h in Headers */,
+				5040D30921E8784500BD29AA /* OpRes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5040D2F721E8784400BD29AA /* RustyOptionalType */ = {
+		5040D2F721E8784400BD29AA /* OpRes */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5040D30C21E8784500BD29AA /* Build configuration list for PBXNativeTarget "RustyOptionalType" */;
+			buildConfigurationList = 5040D30C21E8784500BD29AA /* Build configuration list for PBXNativeTarget "OpRes" */;
 			buildPhases = (
 				5040D2F321E8784400BD29AA /* Headers */,
 				5040D2F421E8784400BD29AA /* Sources */,
@@ -124,14 +127,14 @@
 			);
 			dependencies = (
 			);
-			name = RustyOptionalType;
+			name = OpRes;
 			productName = RustyOptionalType;
-			productReference = 5040D2F821E8784500BD29AA /* RustyOptionalType.framework */;
+			productReference = 5040D2F821E8784500BD29AA /* OpRes.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		5040D30021E8784500BD29AA /* RustyOptionalTypeTests */ = {
+		5040D30021E8784500BD29AA /* OpResTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5040D30F21E8784500BD29AA /* Build configuration list for PBXNativeTarget "RustyOptionalTypeTests" */;
+			buildConfigurationList = 5040D30F21E8784500BD29AA /* Build configuration list for PBXNativeTarget "OpResTests" */;
 			buildPhases = (
 				5040D2FD21E8784500BD29AA /* Sources */,
 				5040D2FE21E8784500BD29AA /* Frameworks */,
@@ -142,9 +145,9 @@
 			dependencies = (
 				5040D30421E8784500BD29AA /* PBXTargetDependency */,
 			);
-			name = RustyOptionalTypeTests;
+			name = OpResTests;
 			productName = RustyOptionalTypeTests;
-			productReference = 5040D30121E8784500BD29AA /* RustyOptionalTypeTests.xctest */;
+			productReference = 5040D30121E8784500BD29AA /* OpResTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -159,27 +162,29 @@
 				TargetAttributes = {
 					5040D2F721E8784400BD29AA = {
 						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 					};
 					5040D30021E8784500BD29AA = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
-			buildConfigurationList = 5040D2F221E8784400BD29AA /* Build configuration list for PBXProject "RustyOptionalType" */;
-			compatibilityVersion = "Xcode 9.3";
+			buildConfigurationList = 5040D2F221E8784400BD29AA /* Build configuration list for PBXProject "OpRes" */;
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 5040D2EE21E8784400BD29AA;
 			productRefGroup = 5040D2F921E8784500BD29AA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5040D2F721E8784400BD29AA /* RustyOptionalType */,
-				5040D30021E8784500BD29AA /* RustyOptionalTypeTests */,
+				5040D2F721E8784400BD29AA /* OpRes */,
+				5040D30021E8784500BD29AA /* OpResTests */,
 			);
 		};
 /* End PBXProject section */
@@ -206,7 +211,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5040D31621E8789E00BD29AA /* RustyOptionalType.swift in Sources */,
+				503A0B8F224A0A2400F110F6 /* ResultExtensions.swift in Sources */,
+				5040D31621E8789E00BD29AA /* OptionalExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,7 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5040D30721E8784500BD29AA /* RustyOptionalTypeTests.swift in Sources */,
+				5040D30721E8784500BD29AA /* OpResTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,7 +229,7 @@
 /* Begin PBXTargetDependency section */
 		5040D30421E8784500BD29AA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5040D2F721E8784400BD29AA /* RustyOptionalType */;
+			target = 5040D2F721E8784400BD29AA /* OpRes */;
 			targetProxy = 5040D30321E8784500BD29AA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -362,18 +368,18 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = RustyOptionalType/Info.plist;
+				INFOPLIST_FILE = OpRes/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "me.matsuri-hi.RustyOptionalType";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.matsuri-hi.OpRes";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -389,17 +395,17 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = RustyOptionalType/Info.plist;
+				INFOPLIST_FILE = OpRes/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "me.matsuri-hi.RustyOptionalType";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.matsuri-hi.OpRes";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -409,15 +415,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = RustyOptionalTypeTests/Info.plist;
+				INFOPLIST_FILE = OpResTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "me.matsuri-hi.RustyOptionalTypeTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.matsuri-hi.OpResTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -427,15 +433,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = RustyOptionalTypeTests/Info.plist;
+				INFOPLIST_FILE = OpResTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "me.matsuri-hi.RustyOptionalTypeTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.matsuri-hi.OpResTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -443,7 +449,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5040D2F221E8784400BD29AA /* Build configuration list for PBXProject "RustyOptionalType" */ = {
+		5040D2F221E8784400BD29AA /* Build configuration list for PBXProject "OpRes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5040D30A21E8784500BD29AA /* Debug */,
@@ -452,7 +458,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5040D30C21E8784500BD29AA /* Build configuration list for PBXNativeTarget "RustyOptionalType" */ = {
+		5040D30C21E8784500BD29AA /* Build configuration list for PBXNativeTarget "OpRes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5040D30D21E8784500BD29AA /* Debug */,
@@ -461,7 +467,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5040D30F21E8784500BD29AA /* Build configuration list for PBXNativeTarget "RustyOptionalTypeTests" */ = {
+		5040D30F21E8784500BD29AA /* Build configuration list for PBXNativeTarget "OpResTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5040D31021E8784500BD29AA /* Debug */,
