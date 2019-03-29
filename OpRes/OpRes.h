@@ -5,8 +5,7 @@
 // This software licensed under the MIT LICENSE.
 // See LICENSE file in the project root for full license information.
 //
-
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for OpRes.
 FOUNDATION_EXPORT double OpResVersionNumber;
