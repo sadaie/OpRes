@@ -136,6 +136,7 @@ extension Result {
     }
     
     /// Returns the result if it is `.success`, otherwise calls `f` and returns the result.
+    /// This is equivalent to `flatMapError`.
     ///
     /// - Parameter f: A function to be evaluated if the result is `.failure`.
     /// - Returns: The result or the result of `f`.
