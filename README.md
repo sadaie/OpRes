@@ -12,6 +12,14 @@ Add this line to your `Cartfile`.
 github "sadaie/OpRes"
 ```
 
+### With [`CocoaPods`](https://github.com/CocoaPods/CocoaPods)
+
+Add This line to your `Podfile`.
+
+```
+pod 'OpRes`
+```
+
 ## Usage
 
 Please see `OpResTests/OpResTests.swift` to know more details.
