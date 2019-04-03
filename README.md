@@ -17,7 +17,7 @@ github "sadaie/OpRes"
 Add This line to your `Podfile`.
 
 ```
-pod 'OpRes`
+pod 'OpRes'
 ```
 
 ## Usage
