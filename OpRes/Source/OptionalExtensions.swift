@@ -72,7 +72,7 @@ extension Optional {
     ///   - transform: A function to be evaluated if the option is `some`.
     /// - Returns: Mapped or default value.
     /// - Throws: Throws an error if `f` throws an error.
-    public func map<U>(or default: U, transform: (Wrapped) throws -> U) rethrows -> U {
+    public func map<T>(or default: T, transform: (Wrapped) throws -> T) rethrows -> T {
         if self.isSome {
             return try transform(self!)
         } else {
@@ -87,7 +87,7 @@ extension Optional {
     ///   - transform: A function to be evaluated if the option is `some`.
     /// - Returns: Mapped or default value
     /// - Throws: Throws an error if `f` throws an error.
-    public func map<U>(or default: () throws -> U, transform: (Wrapped) throws -> U) rethrows -> U {
+    public func map<T>(or default: () throws -> T, transform: (Wrapped) throws -> T) rethrows -> T {
         if self.isSome {
             return try transform(self!)
         } else {
@@ -139,7 +139,7 @@ extension Optional {
     /// - Parameter f: A function to be evaluated if the option is `none`.
     /// - Returns: Transformed value or `none`.
     /// - Throws: Throws an error if `f` throws an error.
-    public func and<U>(_ f: (Wrapped) throws -> U?) rethrows -> U? {
+    public func and<T>(_ f: (Wrapped) throws -> T?) rethrows -> T? {
         return try flatMap(f)
     }
     
@@ -264,5 +264,9 @@ extension Optional {
         case .none:
             return .success(nil)
         }
+    }
+    
+    public func flattened<T>() -> T? where Wrapped == T? {
+        return self?.flatMap { $0 }
     }
 }

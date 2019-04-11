@@ -17,42 +17,42 @@ extension TestError: Equatable {
     }
 }
 
-class OpResTests: XCTestCase {
-    func testOptionalIsSome() {
+class OpResOptionalExtensionsTests: XCTestCase {
+    func testIsSome() {
         let x: Int? = 10
         XCTAssertTrue(x.isSome)
     }
     
-    func testOptionalIsNone() {
+    func testIsNone() {
         let x: Int? = nil
         XCTAssertTrue(x.isNone)
     }
     
-    func testOptionalExpect() {
+    func testExpect() {
         let x: Int? = 10
         XCTAssertEqual(x.expect("value must be 10"), 10)
     }
     
     /*
-    func testExpectShouldFail() {
-        let x: Int? = nil
-        XCTAssertEqual(x.expect("value must be 10"), 10)
-    }
+     func testExpectShouldFail() {
+     let x: Int? = nil
+     XCTAssertEqual(x.expect("value must be 10"), 10)
+     }
      */
     
-    func testOptionalUnwrap() {
+    func testUnwrap() {
         let x: Int? = 10
         XCTAssertEqual(x.unwrap(), 10)
     }
     
     /*
-    func testUnwrapShouldFail() {
-        let x: Int? = nil
-        XCTAssertEqual(x.unwrap(), 10)
-    }
-    */
+     func testUnwrapShouldFail() {
+     let x: Int? = nil
+     XCTAssertEqual(x.unwrap(), 10)
+     }
+     */
     
-    func testOptionalUnwrapOr() {
+    func testUnwrapOr() {
         let a: Int? = 10
         let b: Int = 20
         XCTAssertEqual(a.unwrap(or: b), 10)
@@ -62,7 +62,7 @@ class OpResTests: XCTestCase {
         XCTAssertEqual(c.unwrap(or: d), 20)
     }
     
-    func testOptionalUnwrapOrElse() {
+    func testUnwrapOrElse() {
         let a: Int? = 10
         let b: () -> Int = { 20 }
         XCTAssertEqual(a.unwrap(or: b), 10)
@@ -72,7 +72,7 @@ class OpResTests: XCTestCase {
         XCTAssertEqual(c.unwrap(or: d), 20)
     }
     
-    func testOptionalMapOr() {
+    func testMapOr() {
         let a: Int? = 10
         let b: Int = 20
         let map: (Int) -> Int = { $0 * 10 }
@@ -83,7 +83,7 @@ class OpResTests: XCTestCase {
         XCTAssertEqual(c.map(or: d, transform: map), 20)
     }
     
-    func testOptionalMapOrElse() {
+    func testMapOrElse() {
         let a: Int? = 10
         let b: () -> Int = { 20 }
         let map: (Int) -> Int = { $0 * 10 }
@@ -94,7 +94,7 @@ class OpResTests: XCTestCase {
         XCTAssertEqual(c.map(or: d, transform: map), 20)
     }
     
-    func testOptionalOkOr() {
+    func testOkOr() {
         let a: Int? = 10
         
         let b: Result<Int, TestError> = a.ok(or: TestError())
@@ -117,9 +117,13 @@ class OpResTests: XCTestCase {
             // success
             break
         }
+        
+        let e: Int? = 10
+        let f = e.ok(or: TestError())
+        XCTAssert(type(of: f) == Result<Int, TestError>.self)
     }
     
-    func testOptionalOkOrElse() {
+    func testOkOrElse() {
         let a: Int? = 10
         let b: () -> TestError = { TestError() }
         
@@ -145,7 +149,7 @@ class OpResTests: XCTestCase {
         }
     }
     
-    func testOptionalAnd() {
+    func testAnd() {
         let a: Int? = 10
         let b: Int? = nil
         XCTAssertNil(a.and(b))
@@ -163,7 +167,7 @@ class OpResTests: XCTestCase {
         XCTAssertNil(g.and(h))
     }
     
-    func testOptionalAndThen() {
+    func testAndThen() {
         let sq: (Int) -> Int? = { $0 * $0 }
         let nope: (Int) -> Int? = { _ in nil }
         
@@ -175,7 +179,7 @@ class OpResTests: XCTestCase {
         XCTAssertNil(b.and(sq).and(sq))
     }
     
-    func testOptionalFilter() {
+    func testFilter() {
         let isEven: (Int) -> Bool = { n in n % 2 == 0 }
         
         let a: Int? = 10
@@ -188,7 +192,7 @@ class OpResTests: XCTestCase {
         XCTAssertNil(c.filter(isEven))
     }
     
-    func testOptionalOr() {
+    func testOr() {
         let a: Int? = 10
         let b: Int? = nil
         XCTAssertEqual(a.or(b), 10)
@@ -206,7 +210,7 @@ class OpResTests: XCTestCase {
         XCTAssertNil(g.or(h))
     }
     
-    func testOptionalOrElse() {
+    func testOrElse() {
         let nobody: () -> String? = { nil }
         let vikings: () -> String? = { "vikings" }
         
@@ -218,7 +222,7 @@ class OpResTests: XCTestCase {
         XCTAssertNil(b.or(nobody))
     }
     
-    func testOptionalXor() {
+    func testXor() {
         let a: Int? = 10
         let b: Int? = nil
         XCTAssertEqual(a.xor(b), 10)
@@ -236,7 +240,7 @@ class OpResTests: XCTestCase {
         XCTAssertNil(g.xor(h))
     }
     
-    func testOptionalGetOrInsert() {
+    func testGetOrInsert() {
         var x: Int? = nil
         
         do {
@@ -260,7 +264,7 @@ class OpResTests: XCTestCase {
         XCTAssertEqual(y, 200)
     }
     
-    func testOptionalGetOrInsertWith() {
+    func testGetOrInsertWith() {
         var x: Int? = nil
         
         do {
@@ -271,9 +275,20 @@ class OpResTests: XCTestCase {
         }
         
         XCTAssertEqual(x, 20)
+        
+        var y: Int? = 20
+        
+        do {
+            let z: UnsafeMutablePointer<Int> = y.getOrInsert { 200 }
+            XCTAssertEqual(z.pointee, 20)
+            
+            z.pointee = 200
+        }
+        
+        XCTAssertEqual(y, 200)
     }
     
-    func testOptionalTake() {
+    func testTake() {
         var a: Int? = 10
         let b: Int? = a.take()
         XCTAssertNil(a)
@@ -285,7 +300,7 @@ class OpResTests: XCTestCase {
         XCTAssertNil(d)
     }
     
-    func testOptionalReplace() {
+    func testReplace() {
         var a: Int? = 10
         let b: Int? = a.replace(20)
         
@@ -299,7 +314,7 @@ class OpResTests: XCTestCase {
         XCTAssertNil(d)
     }
     
-    func testOptionalTranspose() {
+    func testTranspose() {
         let a: Result<Int, TestError>? = .success(10)
         XCTAssertEqual(a.transpose(), .success(10))
         
@@ -310,17 +325,36 @@ class OpResTests: XCTestCase {
         XCTAssertEqual(c.transpose(), .success(nil))
     }
     
-    func testResultIsSuccess() {
+    func testFlattened() {
+        let a: Int?? = .some(.some(10))
+        let b = a.flattened()
+        XCTAssert(type(of: b) == Int?.self)
+        XCTAssertEqual(b, 10)
+        
+        let c: Int?? = .some(nil)
+        let d = c.flattened()
+        XCTAssert(type(of: d) == Int?.self)
+        XCTAssertNil(d)
+        
+        let e: Int?? = nil
+        let f = e.flattened()
+        XCTAssert(type(of: f) == Int?.self)
+        XCTAssertNil(f)
+    }
+}
+
+class OpResResultExtensionsTests: XCTestCase {
+    func testIsSuccess() {
         let result: Result<Int, TestError> = .success(10)
         XCTAssert(result.isSuccess)
     }
     
-    func testResultIsFailure() {
+    func testIsFailure() {
         let result: Result<Int, TestError> = .failure(TestError())
         XCTAssert(result.isFailure)
     }
     
-    func testResultSuccess() {
+    func testSuccess() {
         let a: Result<Int, TestError> = .success(10)
         XCTAssertEqual(a.success, 10)
         
@@ -328,7 +362,7 @@ class OpResTests: XCTestCase {
         XCTAssertNil(b.success)
     }
     
-    func testResultFailure() {
+    func testFailure() {
         let a: Result<Int, TestError> = .failure(TestError())
         XCTAssertEqual(a.failure, TestError())
         
@@ -336,7 +370,7 @@ class OpResTests: XCTestCase {
         XCTAssertNil(b.failure)
     }
     
-    func testResultUnwrap() {
+    func testUnwrap() {
         let a: Result<Int, TestError> = .success(10)
         XCTAssertEqual(a.unwrap(), 10)
         
@@ -345,7 +379,7 @@ class OpResTests: XCTestCase {
         // let c = b.unwrap()
     }
     
-    func testResultExpect() {
+    func testExpect() {
         let a: Result<Int, TestError> = .success(10)
         XCTAssertEqual(a.expect("returns value"), 10)
         
@@ -354,7 +388,7 @@ class OpResTests: XCTestCase {
         // let c = b.expect()
     }
     
-    func testResultAnd() {
+    func testAnd() {
         let a: Result<Int, TestError> = .success(10)
         let b: Result<Int, TestError> = .success(20)
         let c = a.and(b)
@@ -374,7 +408,7 @@ class OpResTests: XCTestCase {
         XCTAssertNil(i.success)
     }
     
-    func testResultAndThen() {
+    func testAndThen() {
         let sq: (Int) -> Result<Int, TestError> = { .success($0 * $0) }
         let nope: (Int) -> Result<Int, TestError> = { _ in .failure(TestError()) }
         
@@ -386,7 +420,7 @@ class OpResTests: XCTestCase {
         XCTAssertEqual(b.and(sq).and(sq), .failure(TestError()))
     }
     
-    func testResultOr() {
+    func testOr() {
         let a: Result<Int, TestError> = .success(10)
         let b: Result<Int, TestError> = .failure(TestError())
         XCTAssertEqual(a.or(b), .success(10))
@@ -404,7 +438,7 @@ class OpResTests: XCTestCase {
         XCTAssertEqual(g.or(h), g)
     }
     
-    func testResultOrElse() {
+    func testOrElse() {
         let nobody: (TestError) -> Result<String, TestError> = { _ in .failure(TestError()) }
         let vikings: (TestError) -> Result<String, TestError> = { _ in .success("vikings") }
         
@@ -416,7 +450,7 @@ class OpResTests: XCTestCase {
         XCTAssertEqual(b.or(nobody), b)
     }
     
-    func testResultUnwrapOr() {
+    func testUnwrapOr() {
         let a: Result<Int, TestError> = .success(10)
         let b = 20
         XCTAssertEqual(a.unwrap(or: b), 10)
@@ -426,7 +460,7 @@ class OpResTests: XCTestCase {
         XCTAssertEqual(c.unwrap(or: d), 20)
     }
     
-    func testResultUnwrapOrElse() {
+    func testUnwrapOrElse() {
         let a: Result<Int, TestError> = .success(10)
         let b: (TestError) -> Int = { _ in 20 }
         XCTAssertEqual(a.unwrap(or: b), 10)
@@ -436,7 +470,7 @@ class OpResTests: XCTestCase {
         XCTAssertEqual(c.unwrap(or: d), 20)
     }
     
-    func testResultTranspose() {
+    func testTranspose() {
         let a: Result<Int?, TestError> = .success(10)
         let b: Result<Int, TestError>? = .success(10)
         XCTAssertEqual(a.transpose(), b)
@@ -453,7 +487,7 @@ class OpResTests: XCTestCase {
         // let g = f.transpose()
     }
     
-    func testResultUnwrapError() {
+    func testUnwrapError() {
         let a: Result<Int, TestError> = .failure(TestError())
         XCTAssertEqual(a.unwrapError(), TestError())
         
@@ -462,7 +496,7 @@ class OpResTests: XCTestCase {
         // let c = b.unwrapError()
     }
     
-    func testResultExpectError() {
+    func testExpectError() {
         let a: Result<Int, TestError> = .failure(TestError())
         XCTAssertEqual(a.expectError("returns error"), TestError())
         
@@ -471,16 +505,78 @@ class OpResTests: XCTestCase {
         // let c = b.expectError()
     }
     
-    func testFoo() {
-        enum MyError: Error {
-            case someError
+    func testFlattened() {
+        let a: Result<Result<Int, TestError>, TestError> = .success(.success(10))
+        let b = a.flattened()
+        XCTAssert(type(of: b) == Result<Int, TestError>.self)
+        XCTAssertEqual(b, .success(10))
+        
+        let c: Result<Result<Int, TestError>, TestError> = .success(.failure(TestError()))
+        let d = c.flattened()
+        XCTAssert(type(of: d) == Result<Int, TestError>.self)
+        XCTAssertEqual(d, .failure(TestError()))
+        
+        let e: Result<Result<Int, TestError>, TestError> = .failure(TestError())
+        let f = e.flattened()
+        XCTAssert(type(of: f) == Result<Int, TestError>.self)
+        XCTAssertEqual(f, .failure(TestError()))
+    }
+    
+    class BoolExtensionTests: XCTestCase {
+        func testMap() {
+            func mapper(v: Bool) -> Int {
+                if v {
+                    return 10
+                } else {
+                    return 20
+                }
+            }
+            
+            let a: Bool = true
+            let b = a.map(mapper)
+            XCTAssert(type(of: b) == Int.self)
+            XCTAssertEqual(b, 10)
+            
+            let c: Bool = false
+            let d = c.map(mapper)
+            XCTAssert(type(of: d) == Int.self)
+            XCTAssertEqual(d, 20)
         }
         
-        let option: Int? = 10
-        let result: Result<Int, MyError> = option.map { $0 * 10 }.ok(or: .someError)
-        let x: Int = option.map { $0 * 10 }.expect("should be unwrapped")
-        let y: Int = result.expect("should be unwrapped")
+        func testThen() {
+            let a: Bool = true
+            let b = a.then { 10 }
+            XCTAssert(type(of: b) == Int?.self)
+            XCTAssertEqual(b, 10)
+            
+            let c: Bool = false
+            let d = c.then { 10 }
+            XCTAssert(type(of: d) == Int?.self)
+            XCTAssertNil(d)
+        }
         
-        XCTAssert(x == y) // prints `true`
+        func testElse() {
+            let a: Bool = true
+            let b = a.otherwise { 10 }
+            XCTAssert(type(of: b) == Int?.self)
+            XCTAssertNil(b)
+            
+            let c: Bool = false
+            let d = c.otherwise { 10 }
+            XCTAssert(type(of: d) == Int?.self)
+            XCTAssertEqual(d, 10)
+        }
+        
+        func testIf() {
+            let a: Bool = true
+            let b = a.if(then: { 10 }, else: { 20 })
+            XCTAssert(type(of: b) == Int.self)
+            XCTAssertEqual(b, 10)
+            
+            let c: Bool = false
+            let d = c.if(then: { 10 }, else: { 20 })
+            XCTAssert(type(of: d) == Int.self)
+            XCTAssertEqual(d, 20)
+        }
     }
 }

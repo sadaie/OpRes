@@ -25,6 +25,10 @@
 		5063CDC1224DF2FB0001B2E4 /* OpRes.h in Headers */ = {isa = PBXBuildFile; fileRef = 5040D2FB21E8784500BD29AA /* OpRes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5063CDC2224DF2FC0001B2E4 /* OpRes.h in Headers */ = {isa = PBXBuildFile; fileRef = 5040D2FB21E8784500BD29AA /* OpRes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5063CDC3224DF30C0001B2E4 /* OpResTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5040D30621E8784500BD29AA /* OpResTests.swift */; };
+		507F06CA225EFB0C00E59804 /* BoolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F06C9225EFB0C00E59804 /* BoolExtensions.swift */; };
+		507F06CB225EFB0C00E59804 /* BoolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F06C9225EFB0C00E59804 /* BoolExtensions.swift */; };
+		507F06CC225EFB0C00E59804 /* BoolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F06C9225EFB0C00E59804 /* BoolExtensions.swift */; };
+		507F06CD225EFB0C00E59804 /* BoolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F06C9225EFB0C00E59804 /* BoolExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +74,7 @@
 		5063CDA8224DF1960001B2E4 /* Info_tvos.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_tvos.plist; sourceTree = "<group>"; };
 		5063CDB5224DF29F0001B2E4 /* OpRes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpRes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5063CDB8224DF2A00001B2E4 /* Info_watchos.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_watchos.plist; sourceTree = "<group>"; };
+		507F06C9225EFB0C00E59804 /* BoolExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +185,7 @@
 			children = (
 				5040D31521E8789E00BD29AA /* OptionalExtensions.swift */,
 				503A0B8E224A0A2400F110F6 /* ResultExtensions.swift */,
+				507F06C9225EFB0C00E59804 /* BoolExtensions.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -464,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				507F06CA225EFB0C00E59804 /* BoolExtensions.swift in Sources */,
 				503A0B8F224A0A2400F110F6 /* ResultExtensions.swift in Sources */,
 				5040D31621E8789E00BD29AA /* OptionalExtensions.swift in Sources */,
 			);
@@ -481,6 +488,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				507F06CC225EFB0C00E59804 /* BoolExtensions.swift in Sources */,
 				5063CD77224DEC6E0001B2E4 /* ResultExtensions.swift in Sources */,
 				5063CD76224DEC6B0001B2E4 /* OptionalExtensions.swift in Sources */,
 			);
@@ -498,6 +506,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				507F06CD225EFB0C00E59804 /* BoolExtensions.swift in Sources */,
 				5063CDC0224DF2F80001B2E4 /* ResultExtensions.swift in Sources */,
 				5063CDBE224DF2F40001B2E4 /* OptionalExtensions.swift in Sources */,
 			);
@@ -515,6 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				507F06CB225EFB0C00E59804 /* BoolExtensions.swift in Sources */,
 				5063CDBF224DF2F80001B2E4 /* ResultExtensions.swift in Sources */,
 				5063CDBD224DF2F30001B2E4 /* OptionalExtensions.swift in Sources */,
 			);
