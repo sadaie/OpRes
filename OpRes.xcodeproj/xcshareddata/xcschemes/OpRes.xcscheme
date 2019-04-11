@@ -27,7 +27,38 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5040D2F721E8784400BD29AA"
+            BuildableName = "OpRes.framework"
+            BlueprintName = "OpRes"
+            ReferencedContainer = "container:OpRes.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5063CD3A224DEA7A0001B2E4"
+            BuildableName = "OpRes.framework"
+            BlueprintName = "OpRes-macOS"
+            ReferencedContainer = "container:OpRes.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5063CD98224DF1950001B2E4"
+            BuildableName = "OpRes.framework"
+            BlueprintName = "OpRes-tvOS"
+            ReferencedContainer = "container:OpRes.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5063CDB4224DF29F0001B2E4"
+            BuildableName = "OpRes.framework"
+            BlueprintName = "OpRes-watchOS"
+            ReferencedContainer = "container:OpRes.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">

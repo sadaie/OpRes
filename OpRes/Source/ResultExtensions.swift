@@ -126,7 +126,7 @@ extension Result {
     ///
     /// - Parameter optb: Another result to be returned if the result is `.failure`.
     /// - Returns: The result or `optb`.
-    public func or<F>(_ res: Result<Success, F>) -> Result<Success, F> where F: Error {
+    public func or<E>(_ res: Result<Success, E>) -> Result<Success, E> where E: Error {
         switch self {
         case .success(let s):
             return .success(s)
@@ -140,7 +140,7 @@ extension Result {
     ///
     /// - Parameter f: A function to be evaluated if the result is `.failure`.
     /// - Returns: The result or the result of `f`.
-    public func or<F>(_ f: (Failure) -> Result<Success, F>) -> Result<Success, F> where F: Error {
+    public func or<E>(_ f: (Failure) -> Result<Success, E>) -> Result<Success, E> where E: Error {
         switch self {
         case .success(let s):
             return .success(s)
@@ -163,6 +163,10 @@ extension Result {
         case .failure(let e):
             return .failure(e)
         }
+    }
+    
+    public func flattened<T>() -> Result<T, Failure> where Success == Result<T, Failure> {
+        return self.flatMap { $0 }
     }
 }
 
@@ -193,3 +197,4 @@ extension Result where Success: CustomStringConvertible {
         }
     }
 }
+
