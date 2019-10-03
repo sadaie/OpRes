@@ -4,20 +4,19 @@
 
 ## Install
 
-### With [`Carthage`](https://github.com/Carthage/Carthage)
+**If you want to use `Carthage` or `CocoaPods`, please use the commitment tagged `0.5.6` .**
 
-Add this line to your `Cartfile`.
+### With `Swift Package Manager`
 
-```
-github "sadaie/OpRes"
-```
+Add this lines to your `Package.swift` or set to the setting in Xcode.
 
-### With [`CocoaPods`](https://github.com/CocoaPods/CocoaPods)
-
-Add This line to your `Podfile`.
-
-```
-pod 'OpRes'
+```swift
+dependencies: [
+    .package(
+        url: "https://github.com/sadaie/OpRes.git",
+        from: "1.0.0"
+    )
+]
 ```
 
 ## Usage
