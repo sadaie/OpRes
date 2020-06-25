@@ -204,10 +204,10 @@ extension Optional {
     /// - Returns: A mutable reference to the wrapped value.
     public mutating func getOrInsert(_ value: Wrapped) -> UnsafeMutablePointer<Wrapped> {
         if self.isSome {
-            return UnsafeMutablePointer(mutating: &self!)
+            return withUnsafeMutablePointer(to: &self!) { $0 }
         } else {
             self = .some(value)
-            return UnsafeMutablePointer(mutating: &self!)
+            return withUnsafeMutablePointer(to: &self!) { $0 }
         }
     }
     
@@ -219,11 +219,11 @@ extension Optional {
     /// - Throws: Throws an error if `f` throws an error.
     public mutating func getOrInsert(_ f: () throws -> Wrapped) rethrows -> UnsafeMutablePointer<Wrapped> {
         if self.isSome {
-            return UnsafeMutablePointer(mutating: &self!)
+            return withUnsafeMutablePointer(to: &self!) { $0 }
         } else {
             let value = try f()
             self = .some(value)
-            return UnsafeMutablePointer(mutating: &self!)
+            return withUnsafeMutablePointer(to: &self!) { $0 }
         }
     }
     
